@@ -7,10 +7,14 @@ class PrototypesController < ApplicationController
     @prototype = Prototype.new
   end
 
-  def create  
+  def create
     @prototype = current_user.prototypes.new(prototype_params)
-     @prototype.save
-      redirect_to '/'
+  
+    if @prototype.save
+      redirect_to root_path, notice: 'Prototype was successfully created.'
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
