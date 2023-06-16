@@ -4,8 +4,13 @@
     <%# ログインしているときは以下を表示する %>
     
        <div class="greeting"> 
-        こんにちは、 
-         <%= link_to "ユーザー名さん", root_path, class: :greeting__link%>
+       <% if current_user %>
+        こんにちは、 <%= link_to current_user.name %>
+         <%#<%= link_to "ユーザー名", root_path, class: :greeting__link%>
+         さん
+         <% else %>
+    
+  <% end %>
       </div> 
     <%# // ログインしているときは上記を表示する %>
     <div class="card__wrapper">
