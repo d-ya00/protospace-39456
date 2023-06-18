@@ -3,15 +3,14 @@
   <div class="inner">
     <%# ログインしているときは以下を表示する %>
     
-       <div class="greeting"> 
-       <% if current_user %>
+    <div class="greeting"> 
+      <% if current_user %>
         こんにちは、 <%= link_to current_user.name, user_path(current_user), class: "greeting__link" %>
          <%#<%= link_to "ユーザー名", root_path, class: :greeting__link%>
          さん
-         <% else %>
-    
-  <% end %>
-      </div> 
+        <% else %>  
+      <% end %>
+    </div> 
     <%# // ログインしているときは上記を表示する %>
     <div class="card__wrapper">
       <%# 投稿機能実装後、部分テンプレートでプロトタイプ投稿一覧を表示する %> 
